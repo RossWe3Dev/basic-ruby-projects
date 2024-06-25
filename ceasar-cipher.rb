@@ -1,13 +1,10 @@
 def ceasar_cipher(string,cipher_key)
-  arr = string.split('')
+
+number_arr = string.each_char.map do |char|
+  char = (/[A-Za-z]/).match?(char)? char.ord : char   # #ord converts only a-z characters into integers
+end
 
 debugger
-
-  number_arr = []
-  arr.each do |char|
-    converted_character = (/[A-Za-z]/).match?(char)? char.ord : char   # #ord converts only a-z characters into integers
-    number_arr << converted_character
-  end
 
 mod_num_arr = number_arr.map do |n|
     n = (n.is_a? Integer)? n+cipher_key : n
@@ -24,10 +21,10 @@ mod_num_arr = number_arr.map do |n|
     end
   end
 
-  mod_string = mod_char_arr.join()
+  mod_string = mod_char_arr.join
   p mod_string
 end
 
-ceasar_cipher('ab cz',3)    # test
+ceasar_cipher('ab cz! Z',8)    # test
 
-ceasar_cipher(gets.chomp,gets.chomp.to_i)
+#ceasar_cipher(gets.chomp,gets.chomp.to_i)
