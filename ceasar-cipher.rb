@@ -1,27 +1,24 @@
 def ceasar_cipher(string,cipher_key)
 
-number_arr = string.each_char.map do |char|
+  number_arr = string.each_char.map do |char|
   char = (/[A-Za-z]/).match?(char)? char.ord : char   # #ord converts only a-z characters into integers
-end
-
-debugger
-
-mod_num_arr = number_arr.map do |n|
-    n = (n.is_a? Integer)? n+cipher_key : n
   end
 
-  mod_char_arr = mod_num_arr.map do |new_n| 
-    if new_n.is_a? Integer
-      if (new_n>122 || (new_n>90 && new_n<97))    # accepted integers from #ord method are (a = 97, z = 122)(A = 65, Z = 90)
-        new_n = new_n - 26
-      end
-      new_n.chr     # #chr converts the accepted integers back to characters 
+  debugger
+
+  mod_char_array = number_arr.map do |n_ord|    # accepted integers from #ord method are 
+    if (n_ord.to_i.between?(65, 90)) then             # (A = 65, Z = 90)
+      new_ord = ((n_ord - 65 + cipher_key) % 26) + 65
+      new_char = new_ord.chr
+    elsif (n_ord.to_i.between?(97, 122)) then         # (a = 97, z = 122)
+      new_ord = ((n_ord - 97 + cipher_key) % 26) + 97
+      new_char = new_ord.chr
     else
-      new_n
+      n_ord
     end
   end
 
-  mod_string = mod_char_arr.join
+  mod_string = mod_char_array.join
   p mod_string
 end
 
