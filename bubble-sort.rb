@@ -2,12 +2,12 @@ def bubble_sort(arr)
   n = arr.length
   swapped = true
 
-  while swapped == true do
+  while swapped do
     for i in 0...n-1
       swapped = false
       if arr[i] > arr[i+1]
-      arr[i], arr[i+1] = arr[i+1], arr[i]
-      swapped = true
+        arr[i], arr[i+1] = arr[i+1], arr[i]
+        swapped = true
       end
     end
     n = n-1
