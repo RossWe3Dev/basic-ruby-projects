@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def caesar_cipher(string, cipher_key)
   # #ord converts characters into integers, #chr integers into characters
 
