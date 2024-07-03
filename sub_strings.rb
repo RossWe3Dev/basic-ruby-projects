@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 dictionary = %w[below down go going horn how howdy it i e low own part partner
                 sit]
 
