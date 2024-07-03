@@ -1,7 +1,8 @@
-dictionary = ["below","down","go","going","horn","how","howdy","it","i", "e","low","own","part","partner","sit"]
+dictionary = %w[below down go going horn how howdy it i e low own part partner
+                sit]
 
-def substrings(string,dictionary)
-  words_arr = string.downcase.split(/[\W]/)
+def substrings(string, dictionary)
+  words_arr = string.downcase.split(/\W/)
 
   matching_words_arr = []
   dictionary.each do |dict_word|
@@ -10,16 +11,15 @@ def substrings(string,dictionary)
     end
   end
 
-  matches_hash = matching_words_arr.reduce(Hash.new(0)) do |match_key, word|
+  matches_hash = matching_words_arr.each_with_object(Hash.new(0)) do |word, match_key|
     match_key[word] += 1
-    match_key
   end
 
-  puts "This where the matches in our dictionary:"
+  puts 'This where the matches in our dictionary:'
   p matches_hash
 end
 
-puts "What string do you want to check?"
+puts 'What string do you want to check?'
 string = gets.chomp
 
 substrings(string, dictionary)
