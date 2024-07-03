@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 def bubble_sort(arr)
   n = arr.length
   swapped = true
 
   while swapped
-    for i in 0...n - 1
+    (0...n - 1).each do |i|
       swapped = false
       if arr[i] > arr[i + 1]
         arr[i], arr[i + 1] = arr[i + 1], arr[i]
