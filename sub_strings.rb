@@ -17,7 +17,7 @@ def substrings(string, dictionary)
     match_key[word] += 1
   end
 
-  puts 'This where the matches in our dictionary:'
+  puts 'These are the matches in our dictionary:'
   p matches_hash
 end
 
